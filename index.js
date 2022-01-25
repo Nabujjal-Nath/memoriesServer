@@ -2,8 +2,10 @@ import express from 'express';
 import bodyParser from "body-parser";
 import cors from 'cors';
 import mongoose from "mongoose";
-
+import postRoutes from './routes/post.js'
 const app = express();
+
+app.use('/posts', postRoutes); //Every routes defined in routes/post.js file will have prefix /posts e.g. http://localhost:4000/posts
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
